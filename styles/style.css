@@ -1,0 +1,23 @@
+#picture {
+  background-image: url("http://f.tqn.com/y/latinamericanhistory/1/L/l/9/-/-/BB1.jpg");
+  height:100vh;
+  z-index: 0;
+  position: absolute;
+}
+
+#text-container {
+  height: 100px;
+  margin: 0 auto;
+  display: inline-block;
+  width: 300px;
+  background-color: #666;
+  opacity: 0.6;
+  border-radius: 5px;
+  z-index: 99;
+}
+
+#js_piratestring {
+  color:white;
+}
+
+/*https://bethtrissel.files.wordpress.com/2011/05/blackbeard.jpg?w=500*/
