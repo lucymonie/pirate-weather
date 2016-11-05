@@ -1,10 +1,15 @@
 var loading = document.querySelector(".loading");
 var content = document.querySelector(".content");
+var invite = document.querySelector(".invite");
+var userClick = document.getElementById('getMyWeather');
+
+userClick.addEventListener('click', function() {
+  getWeather();
+});
 
 //Gets the weather from wunderground API by user IP
 function getWeather() {
-  //var url = 'http://api.wunderground.com/api/' + apiKeys.wundergroundKey + '/forecast/lang:EN/q/autoip.json';
-  var url = 'http://api.wunderground.com/api/4de3fe19b2ee5db3/forecast/lang:EN/q/autoip.json';
+    var url = 'http://api.wunderground.com/api/' + apiKeys.wundergroundKey + '/forecast/lang:EN/q/autoip.json';
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function(){
       if(xhr.status === 200) {
@@ -65,6 +70,7 @@ function processPirateObj(obj) {
   }
 
   function showLoading() {
+    hide(invite);
     show(loading);
     hide(content);
   }
@@ -80,9 +86,6 @@ function displayOnScreen(string) {
   var domElement = document.getElementById('js_piratestring');
   domElement.innerHTML = string;
 }
-
-//Calls function to request weather by IP
-getWeather();
 
 //If there's an error, this will generate a random pirate error message
 function ohCrap() {
