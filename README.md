@@ -9,4 +9,3 @@ An app that request that you enter a location to an input field and click 'submi
 
 ### Tools
 - QUnit testing
-- 
