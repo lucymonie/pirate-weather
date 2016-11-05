@@ -6,16 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="styles/normalize.css" type="text/css" rel="stylesheet">
   <link href="styles/style.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   <title>Pirate Weather</title>
 </head>
 
 <body>
   <section id="picture">
-    <div id="text-container">
-      <p id="js_piratestring"></p>
-    </div>
+      <p id="js_piratestring" class="Absolute-Center content"></p>
   </section>
 
+  <section class="loading">
+      <i class="fa fa-spinner fa-pulse fa-4x loading-icon" aria-hidden="true"></i>
+      <p class="loading-text">Generating content…</p>
+  </section>
+
+  <script src="https://use.fontawesome.com/dab6567ebf.js"></script>
   <script type="text/javascript" src="api-keys.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </body>
