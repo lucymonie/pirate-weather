@@ -1,0 +1,30 @@
+{
+  "name": "pirate-weather",
+  "version": "1.0.0",
+  "description": "### What An app that request that you enter a location to an input field and click 'submit'. It returns the weather in that location in pirate-speak.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucymonie/pirate-weather.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucymonie/pirate-weather/issues"
+  },
+  "homepage": "https://github.com/lucymonie/pirate-weather#readme",
+  "dependencies": {
+    "env2": "^2.1.1",
+    "handlebars": "^4.0.6",
+    "hapi": "^16.1.0",
+    "inert": "^4.1.0",
+    "request": "^2.79.0",
+    "vision": "^4.1.1"
+  }
+}

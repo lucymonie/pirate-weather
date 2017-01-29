@@ -1,1 +1,4 @@
 api-keys.js
+config.env
+node_modules/
+alt-files/
