@@ -4,7 +4,6 @@ const Inert = require('inert');
 const Handlebars = require('handlebars');
 const request = require("request");
 const weather = require("./weather");
-const env = require('env2')('./config.env');
 
 const server = new Hapi.Server();
 
@@ -24,21 +23,33 @@ server.register(Vision, (err) => {
     layout: 'default',
   });
 
-  server.route({
+  server.route([
+    {
     path: '/',
     method: 'GET',
     handler: (req, reply) => {
-      let context = {};
-      let remoteIp = req.info.remoteAddress;
+      reply.view('index', { weather: 'Getting your weather, arr'});
+    }
+  },
+  {
+    path: '/location',
+    method: 'GET',
+    handler: (req, reply) => {
+      let location = {
+        city: req.query.city,
+        country: req.query.country
+      };
 
-      function buildView (context) {
-        context.default = "Flick a pike in your twinkles, we seem to have a problem with the server";
-        reply.view('index', context);
+      let callback = function(context) {
+        console.log('receied context in callback, and it is: ', context);
+        return reply.view('weather', context);
       }
 
-      weather.ip(remoteIp, buildView);
+      weather.get(location, callback);
+
     }
-   });
+  }
+  ]);
 });
 
 server.register(Inert, (err) => {

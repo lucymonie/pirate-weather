@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "watch": "nodemon index.js -e js,html,css"
   },
   "repository": {
     "type": "git",
@@ -21,10 +22,11 @@
   },
   "homepage": "https://github.com/lucymonie/pirate-weather#readme",
   "dependencies": {
-    "env2": "^2.1.1",
+    "env2": "^2.2.0",
     "handlebars": "^4.0.6",
     "hapi": "^16.1.0",
     "inert": "^4.1.0",
+    "nodemon": "^1.11.0",
     "request": "^2.79.0",
     "vision": "^4.1.1"
   },
