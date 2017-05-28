@@ -20,33 +20,48 @@ server.register(Vision, (err) => {
     },
     path: 'views',
     layoutPath: 'views/layout',
-    layout: 'default',
+    layout: 'default'
   });
 
   server.route([
-    {
+  {
     path: '/',
     method: 'GET',
     handler: (req, reply) => {
-      reply.view('index', { weather: 'Getting your weather, arr'});
+      reply.view('index', {initial: 'Getting your weather... arr'});
     }
   },
   {
     path: '/location',
+    method: 'POST',
+    handler: (req, reply) => {
+      let location = {
+        city: req.payload.city,
+        country: req.payload.country
+      };
+
+      console.log('Location object: ', location);
+      reply.view('weather', location);
+    }
+  },
+  {
+    path:'/weather',
     method: 'GET',
     handler: (req, reply) => {
+      console.log('Request.query is: ', req.query);
       let location = {
         city: req.query.city,
         country: req.query.country
-      };
+      }
 
       let callback = function(context) {
-        console.log('receied context in callback, and it is: ', context);
-        return reply.view('weather', context);
+        console.log('received context in callback, and it is: ', context);
+        let content = {};
+        content.weather = context.weather;
+        reply.view(`weather`, content);
       }
 
       weather.get(location, callback);
-
     }
   }
   ]);
@@ -57,7 +72,7 @@ server.register(Inert, (err) => {
 
   server.route({
     method: 'GET',
-    path: '/{param*}',
+    path:'/{file*}',
     handler: {
       directory: {
         path: 'public'
